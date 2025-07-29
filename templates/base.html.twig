@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
+		<header class="header">
+			<nav class="container">
+				<div class="img">
+					<img src="{{ asset('img/mycave-logo.png')}}" alt="">
+				</div>
+				<div class="link">
+					<a href="{{ path('app_home') }}">Acceuil</a>
+					{% if app.user %}
+						{% if is_granted('ROLE_ADMIN') %}
+							<a href="{{path('admin')}}">Admin</a>
+						{%  endif %}
+						<a href="{{path('app_logout')}}">Deconnection</a>
+						<a href="{{path('app_cave')}}">Ma cave</a>
+						<a href="{{path('other_cave')}}">Les caves</a>
+					{% else %}
+						<a href="{{path('app_login')}}">Se connecter</a>
+						<a href="{{path('app_inscription')}}">Insription</a>
+					{% endif %}
+				</div>
+			</nav>
+		</header>
+		{% block body %}{% endblock %}
+	</body>
+</html></body></html>

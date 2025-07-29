@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<section class="detail">
+
+		<a class="rtr retour-gauche" href="{{ path('app_cave') }}">← Retour à ma cave</a>
+
+		{%  if app.user != owner %}
+			<a class="rtr retour-droite" href="{ path('user_cave', {'id': owner.id}) }}">Retour a sa cave →</a>
+		{% endif %}
+	</div>
+	<div class="detail-card">
+		<div class="image">
+			<img src="{{ asset('/uploads/images/' ~ bouteille.imageName) }}" alt="{{ bouteille.name }}">
+		</div>
+		<div class="bouteille-detail">
+			<h2>{{ bouteille.name }}</h2>
+			<p>Année :
+				{{ bouteille.annee}}</p>
+			<p>Pays :
+				{{ bouteille.region.pays.pays}}</p>
+			<p>Région :
+				{{ bouteille.region.region}}</p>
+			<p>Cépage :
+				{{ bouteille.cepage.cepage}}</p>
+			<p>Description :
+				{{ bouteille.description}}</p>
+			{% if not readonly %}
+				<div class="bouteille-button">
+					<a class="btn btn-primary" href={{path('update_bouteille', {'id': bouteille.id} )}}>Modifier</a>
+
+					<form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('delete_bouteille', {'id': bouteille.id}) }}">
+						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name="_token" value="{{ csrf_token('SUP' ~ bouteille.id) }}">
+						<input class="btn btn-secondary" id="delete" type="submit" value="Supprimer">
+					</form>
+				{% endif %}
+			</div>
+		</div>
+
+	</div>
+
+</section>{% endblock %}

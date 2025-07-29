@@ -1,0 +1,26 @@
+@use '../abstarcts/variables' as variables;
+
+.home-container {
+    background-color: variables.$Black;
+    color: variables.$White;
+    font-family: variables.$FontTexte;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .home-content {
+        text-align: center;
+
+        .home-btn {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+
+        }
+
+        .color {
+            color: variables.$Rouge;
+        }
+    }
+}

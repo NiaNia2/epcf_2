@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+	<section class="home-container">
+		<div class="home-content">
+			{% if app.user %}
+				<h1>Bienvenue
+					{{ app.user.username }}</h1>
+				<div class="home-btn">
+					<a class="btn" href="{{ path('app_cave') }}">Acceder à ma cave</a>
+				</div>
+			{% else %}
+
+				<h2>Bienvenue sur
+					<span class="color">My CAVE</span>
+				</h2>
+			{% endif %}
+			{% if not app.user %}
+				<p>Connecte toi ou creer un compte pour gerer ta cave
+				</p>
+				<div class="home-btn">
+					<a class="btn" href="{{ path('app_login') }}">Se connecter</a>
+					<a class="btn btn-secondary" href="{{ path('app_inscription') }}">Inscription</a>
+				</div>
+			{% endif %}
+		</div>
+	</section>
+{% endblock %}

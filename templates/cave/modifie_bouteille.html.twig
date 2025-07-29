@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block body %}
+	<h1>Bienvenue à toi la modification
+	</h1>
+	{{form_start(CaveBouteilleType)}}
+	{{form_widget(CaveBouteilleType)}}
+	<button class="btns btn-home">Valider</button>
+	{{form_end(CaveBouteilleType)}}
+{% endblock %}

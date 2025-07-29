@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Creation compte
+{% endblock %}
+
+{% block body %}
+	<section class="inscription-container">
+		<div class="inscription-content">
+			<h1>Inscrivez-vous</h1>
+
+			{{form_start(userForm)}}
+			{{form_widget(userForm)}}
+			<button class="btn btn-primary">Valider</button>
+			{{form_end(userForm)}}
+
+		</div>
+	</section>
+
+{% endblock %}

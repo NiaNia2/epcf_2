@@ -1,0 +1,25 @@
+@use '../abstarcts/variables' as variables;
+
+.other {
+    min-height: calc(100vh - 80px);
+    margin: 0 auto;
+    background-color: variables.$Black ;
+    color: variables.$White;
+
+    .other-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+
+        .user-card {
+            width: 220px;
+            background-color: variables.$Bordeaux;
+            color: variables.$White;
+            text-align: center;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            box-shadow: 0 0 8px rgba(136, 92, 126, 1);
+        }
+    }
+}

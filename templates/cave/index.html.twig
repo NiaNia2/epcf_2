@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CaveController!
+{% endblock %}
+
+{% block body %}
+	<section class="bouteilles">
+		{% if app.user %}
+			<h1>Bienvenue dans ta cave
+				{{ app.user.username }}</h1>
+			{% if app.user and app.user == owner %}
+				<a class="btn " href={{ path('create_bouteille')}}>Ajouter une bouteille</a>
+			{% endif %}
+			{% for bouteille in bouteilles %}
+				<div class="bouteille-container">
+					<div class="card-bouteille">
+						<div class="bouteille-img">
+							<img src="{{ asset('/uploads/images/' ~ bouteille.imageName)}}" alt="image">
+						</div>
+						<div class="bouteille-detail">
+							<h2>{{ bouteille.name }}</h2>
+							<p>{{ bouteille.annee}}</p>
+							<p>{{ bouteille.region.pays.pays}}</p>
+							<p>{{ bouteille.region.region}}</p>
+						</div>
+						<div class="bouteille">
+							<a class="voir" href={{path('detail', {'id': bouteille.id} )}}>Voir plus</a>
+						</div>
+					</div>
+				</div>
+
+			{% endfor %}
+		{% endif %}
+	</section>
+{% endblock %}

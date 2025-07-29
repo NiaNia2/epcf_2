@@ -1,0 +1,41 @@
+@use '../abstarcts/variables' as variables;
+
+.header {
+
+    background: variables.$Bordeaux;
+    color: variables.$White;
+    font-family: variables.$FontTexte;
+    padding: 1rem 2rem;
+
+    .container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .img {
+            width: 10%;
+        }
+
+        .link {
+            display: flex;
+            gap: 2rem;
+
+            a {
+                color: variables.$White;
+                text-decoration: none;
+                font-size: 16px;
+                transition: color 0.3s;
+            }
+
+            a:hover {
+                color: variables.$Rouge;
+            }
+
+            a:focus {
+                outline: none;
+                color: variables.$Mauve;
+            }
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@use '../abstarcts/variables' as variables;
+
+.detail {
+    background-color: variables.$Black;
+    color: variables.$White;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .rtr {
+        color: variables.$White;
+    }
+
+    .rtr:hover {
+        color: variables.$Rouge;
+    }
+
+    .detail-card {
+        background-color: variables.$Bordeaux;
+        max-width: 500px;
+        gap: 03rem;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+            flex: 0 0 200px;
+            max-width: 100%;
+        }
+
+        .bouteille-detail {
+
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+
+            .bouteille-button {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les caves
+{% endblock %}
+
+{% block body %}
+	<section class="other">
+		<h1>Les caves</h1>
+
+		<div class="other-card">
+			{% for user in users %}
+				{% if user != app.user %}
+					<div class="user-card">
+						<h2>{{ user.username }}</h2>
+						<a class="btn btn-secondary" href="{{ path('user_cave', {'id': user.id}) }}">Voir sa cave</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</section>
+{% endblock %}

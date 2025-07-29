@@ -1,0 +1,30 @@
+@use '../abstarcts/variables' as variables;
+
+.btn {
+    background-color: variables.$Bordeaux;
+    color: variables.$White;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: variables.$Rouge;
+}
+
+.btn-primary {
+    background-color: variables.$Rouge;
+    font-family: variables.$FontTexte;
+}
+
+.btn-primary:hover {
+    background-color: variables.$Mauve;
+}
+
+.btn-secondary {
+    background-color: variables.$Mauve;
+}
+
+.btn-secondary:hover {
+    background-color: variables.$Bordeaux;
+}
