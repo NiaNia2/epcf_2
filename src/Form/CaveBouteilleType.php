@@ -9,6 +9,7 @@ use App\Entity\Regions;
 use App\Entity\Bouteille;
 use Doctrine\ORM\Cache\Region;
 use Vich\UploaderBundle\Entity\File;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -23,9 +24,11 @@ class CaveBouteilleType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('imageFile', FileType::class, [
+            ->add('imageFile', VichImageType::class, [
                 'required' => false,
-                'mapped' => true,
+                'label' => 'Image de la bouteille',
+                'download_uri' => false,
+                'image_uri' => false,
             ])
             ->add('annee')
             ->add('pays', EntityType::class, [

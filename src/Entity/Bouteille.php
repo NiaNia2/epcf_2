@@ -129,6 +129,14 @@ class Bouteille
             $this->updatedAt = new \DateTimeImmutable();
         }
     }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
     public function getImageFile(): ?File
     {
         return $this->imageFile;
@@ -142,5 +150,10 @@ class Bouteille
     public function getImageName(): ?string
     {
         return $this->imageName;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
     }
 }

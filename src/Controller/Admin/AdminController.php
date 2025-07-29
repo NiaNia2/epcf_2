@@ -50,8 +50,8 @@ class AdminController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home'); // Acceuil Pdashboard
-        yield MenuItem::linkToDashboard('Utilisateur', 'fa fa-users', User::class); // gestion des utilisateur
-        yield MenuItem::linkToDashboard('Bouteilles', 'fas fa-wine-bottle', Bouteille::class); // gestion bouteille
+        yield MenuItem::linkToCrud('Utilisateur', 'fa fa-users', User::class); // gestion des utilisateur
+        yield MenuItem::linkToCrud('Bouteilles', 'fas fa-wine-bottle', Bouteille::class); // gestion bouteille
         yield MenuItem::linkToRoute('Retour au site', 'fas fa-undo', 'app_home'); // Liens pour revenir à l'acceuil
     }
 }
